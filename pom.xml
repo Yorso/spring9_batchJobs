@@ -33,6 +33,13 @@
 			<version>${spring.version}</version>
 		</dependency>
 		
+		<!-- Spring MVC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
 		<!-- Maven dependencies for Spring Batch for running Batch Jobs -->
 		<dependency>
 			<groupId>org.springframework.batch</groupId>
@@ -44,10 +51,12 @@
 			<artifactId>spring-batch-infrastructure</artifactId>
 			<version>3.0.1.RELEASE</version>
 		</dependency>
+		
+		<!-- Unit testing batch jobs -->
 		<dependency>
-		    <groupId>com.thoughtworks.xstream</groupId>
-		    <artifactId>xstream</artifactId>
-		    <version>1.4.8</version>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-test</artifactId>
+			<version>3.0.4.RELEASE</version>
 		</dependency>
 		
 		<!-- Maven dependencies for Spring JDBC -->
@@ -71,6 +80,29 @@
 			<version>5.1.34</version>
 		</dependency>
 		
+		<!-- Maven dependency for Spring Object/XML Mapping (reading an XML file) -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- JUnit Maven dependency -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- TestNG Maven dependency -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 	
   <build>
