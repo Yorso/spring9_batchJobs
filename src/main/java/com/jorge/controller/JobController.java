@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class JobController {
 
 	@Autowired
-	JobLauncher jobLauncher;
+	private JobLauncher jobLauncher;
 	
 	@Autowired
-	Job job;
+	private Job job;
 	
 	@RequestMapping("home")
 	@ResponseBody

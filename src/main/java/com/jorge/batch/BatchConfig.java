@@ -52,7 +52,7 @@ public class BatchConfig {
 	private StepBuilderFactory steps;
 	
 	@Autowired
-	JobLauncher jobLauncher;
+	private JobLauncher jobLauncher;
 	
 
 	/*****************
