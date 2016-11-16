@@ -88,6 +88,14 @@ public class BatchConfig {
 		.tasklet(new Task1()) // We defined a job1 job executing the step1 step, which will call the execute() method in the Task1 class.
 		.build();
 	}
+	
+	@Bean
+	public Step step3(){
+		System.out.println(this.getClass().getSimpleName() + "." + new Exception().getStackTrace()[0].getMethodName() + ": INFO: Starting step1 in BatchConfig.java");
+		return steps.get("step3")
+		.tasklet(task1()) // It executes public SystemCommandTasklet task1() below (create text.txt file in /home/jorge)
+		.build();
+	}
 		
 	//Define the job1 bean that will execute step1
 	@Bean
@@ -98,6 +106,7 @@ public class BatchConfig {
 		//.next(step2()) // This is to execute more than one step. If we try to execute step2() this way, we get this error:
 						 // nested exception is java.lang.IllegalArgumentException: Path must not be null
 						 // It means it can't read parameter "file=CSV/input_data.txt", so in reader method csvFilePath would be null and crash
+		.next(step3()) // It executes public SystemCommandTasklet task1() below (create text.txt file in /home/jorge)
 		.build();
 	}
 	
@@ -118,8 +127,7 @@ public class BatchConfig {
 	 * extend SystemCommandTasklet and override its execute() method
 	 * 
 	 */
-	// IT DOESN'T WORK!!!!
-	/*@Bean
+	@Bean
 	public SystemCommandTasklet task1() {
 		SystemCommandTasklet tasklet = new SystemCommandTasklet();
 		
@@ -130,7 +138,7 @@ public class BatchConfig {
 		System.out.println(this.getClass().getSimpleName() + "." + new Exception().getStackTrace()[0].getMethodName() + ": INFO: Starting 'SystemCommandTasklet task1()' in BatchConfig.java => COMMAND: touch test.txt");
 		
 		return tasklet;
-	}*/
+	}
 	
 	/**
 	 * Scheduling a job
