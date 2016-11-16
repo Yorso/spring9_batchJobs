@@ -127,7 +127,7 @@ public class BatchConfig {
 	 * extend SystemCommandTasklet and override its execute() method
 	 * 
 	 */
-	//@Bean
+	//@Bean //It generates error when start up Tomcat
 	public SystemCommandTasklet task1() {
 		SystemCommandTasklet tasklet = new SystemCommandTasklet();
 		
