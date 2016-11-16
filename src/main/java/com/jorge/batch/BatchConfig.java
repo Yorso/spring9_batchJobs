@@ -127,7 +127,7 @@ public class BatchConfig {
 	 * extend SystemCommandTasklet and override its execute() method
 	 * 
 	 */
-	@Bean
+	//@Bean
 	public SystemCommandTasklet task1() {
 		SystemCommandTasklet tasklet = new SystemCommandTasklet();
 		
